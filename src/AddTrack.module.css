@@ -1,0 +1,34 @@
+#submit_btn {
+    background-color: aqua;;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    color: rgb(255, 0, 238)
+  }
+
+.AddTrackForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.NavBar {
+    display: flex;
+    align-items: center;
+}
+
+#file_btn {
+    background-color: aqua;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    color: rgb(63, 139, 0)
+}

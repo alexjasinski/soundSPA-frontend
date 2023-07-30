@@ -1,0 +1,29 @@
+
+
+.trackcardContainer {
+    display: block;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: aqua;
+    width: 650px;
+    height: 170px;
+    border: 2px solid black;
+    border-radius: 12px;
+    gap: 20px;
+    color: darkblue;
+    text-overflow: inherit;
+}
+
+a {
+    display: flex;
+    justify-content: center
+}
+
+h1 {
+    font-size: 1em;
+    line-height: 1.1;
+    color: darkgoldenrod
+  }
+
