@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import styles from "../AddTrack.module.css"
+import styles from "../AddTrack.module.css";
 
 const API_URL = "http://localhost:5005";
 
@@ -8,7 +8,7 @@ function AddTrack(props) {
   const [artistName, setArtistName] = useState("");
   const [trackTitle, setTrackTitle] = useState("");
   const [audioURL, setAudioURL] = useState("");
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   const storedToken = localStorage.getItem("authToken");
 
   const handleFileUpload = (e) => {
@@ -37,8 +37,6 @@ function AddTrack(props) {
     const trackBody = { artistName, trackTitle, audioURL };
     console.log("trackBody is doing great", trackBody);
 
-    
-
     axios
       .post(`${API_URL}/api/createTrack`, trackBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -49,9 +47,9 @@ function AddTrack(props) {
         // Reset the form
         setArtistName("");
         setTrackTitle("");
-       
-       setAudioURL("");
-       
+
+        setAudioURL("");
+
         // navigate to another page
         // navigate("/");
       })
@@ -61,8 +59,8 @@ function AddTrack(props) {
   return (
     <div className={styles.AddTrack}>
       <h3>AddTrack</h3>
-      <br/>
-      <form className={styles.AddTrackForm}onSubmit={handleSubmit}>
+      <br />
+      <form className={styles.AddTrackForm} onSubmit={handleSubmit}>
         <label>Title:</label>
         <input
           type="text"
@@ -70,7 +68,7 @@ function AddTrack(props) {
           value={trackTitle}
           onChange={(e) => setTrackTitle(e.target.value)}
         />
-        <br/>
+        <br />
         <label>Artist:</label>
         <input
           type="text"
@@ -78,14 +76,20 @@ function AddTrack(props) {
           value={artistName}
           onChange={(e) => setArtistName(e.target.value)}
         />
-        <br/>
+        <br />
         <label>Choose file:</label>
-        <br/>
-        <input id={styles.file_btn} type="file" onChange={(e) => handleFileUpload(e)} />
-        <br/>
-        <button id={styles.submit_btn} type="submit">Submit</button>
+        <br />
+        <input
+          id={styles.file_btn}
+          type="file"
+          onChange={(e) => handleFileUpload(e)}
+        />
+        <br />
+        <button id={styles.submit_btn} type="submit">
+          Submit
+        </button>
       </form>
-      <br/>
+      <br />
     </div>
   );
 }
